@@ -174,3 +174,6 @@ buildNumber.properties
 chromedriver
 
 # End of https://www.gitignore.io/api/java,maven,intellij+all,intellij+iml
+
+# login test data
+src/test/resources/logindata.csv
