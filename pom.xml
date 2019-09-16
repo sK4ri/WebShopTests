@@ -40,6 +40,11 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.shyiko.dotenv</groupId>
+            <artifactId>dotenv</artifactId>
+            <version>0.1.1</version>
+        </dependency>
     </dependencies>
 
 </project>
