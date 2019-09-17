@@ -11,8 +11,8 @@ public abstract class Page {
     static WebDriver driver;
 
     Map<String, String> dotEnv = DotEnv.load();
-    public final String USERNAME = dotEnv.get("USERNAME");
-    public final String PASSWORD = dotEnv.get("PASSWORD");
+    public final String SELENIUM_USERNAME = dotEnv.get("SELENIUM_USERNAME");
+    public final String SELENIUM_PASSWORD = dotEnv.get("SELENIUM_PASSWORD");
     public final String BASE_URL = dotEnv.get("BASE_URL");
     public final String WEBDRIVER_PATH = dotEnv.get("WEBDRIVER_PATH");
     public final String WEBDRIVER_TYPE = dotEnv.get("WEBDRIVER_TYPE");
@@ -28,9 +28,8 @@ public abstract class Page {
     }
 
     public void login() {
-
         LoginPom lp = new LoginPom();
-        lp.login(USERNAME, PASSWORD);
+        lp.login(SELENIUM_USERNAME, SELENIUM_PASSWORD);
     }
 
     public void quitDriver() {

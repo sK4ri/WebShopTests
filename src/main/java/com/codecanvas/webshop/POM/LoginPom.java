@@ -24,7 +24,6 @@ public class LoginPom extends Page{
     }
 
     public void login(String username, String password) {
-
         usernameInputField.sendKeys(username);
         passwordInputField.sendKeys(password + Keys.RETURN);
     }
