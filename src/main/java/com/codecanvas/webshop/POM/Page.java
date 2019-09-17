@@ -19,8 +19,8 @@ public abstract class Page {
 
 
     public Page() {
-        if (driver == null) driver = new ChromeDriver();
         System.setProperty(WEBDRIVER_TYPE, WEBDRIVER_PATH);
+        if (driver == null) driver = new ChromeDriver();
     }
 
     public void goToPage (String path) {
