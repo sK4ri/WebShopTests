@@ -18,7 +18,6 @@ public class LoginPom extends Page{
 
 
     public LoginPom() {
-
         PageFactory.initElements(driver, this);
         goToPage(PATH);
     }

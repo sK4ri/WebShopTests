@@ -28,7 +28,6 @@ public class AddQuestionPom extends Page{
         PageFactory.initElements(driver, this);
         login();
         goToPage(PATH);
-        waiter.waitForPageLoadComplete(driver);
     }
 
     public void fillForm(String title, String details, String image) {
