@@ -19,14 +19,11 @@ public class LoginPom extends Page{
     @FindBy(name = "plain_text_password") private WebElement passwordInputField;
 
 
-    public LoginPom(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public LoginPom() {
         goToPage(PATH);
     }
 
     public void login(String username, String password) {
-
         usernameInputField.sendKeys(username);
         passwordInputField.sendKeys(password + Keys.RETURN);
     }

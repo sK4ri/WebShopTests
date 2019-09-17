@@ -12,7 +12,7 @@ public class LoginTest {
 
     @BeforeEach
     public void init() {
-        lp = new LoginPom(DriverUtil.getDriver());
+        lp = new LoginPom();
     }
 
     @AfterEach
@@ -22,11 +22,11 @@ public class LoginTest {
 
     @Test
     public void successfulLogin() {
-        lp.login(lp.USERNAME, lp.PASSWORD);
+        lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
     }
 
     @Test
     public void secondLogin() {
-        lp.login(lp.USERNAME, lp.PASSWORD);
+        lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
     }
 }
