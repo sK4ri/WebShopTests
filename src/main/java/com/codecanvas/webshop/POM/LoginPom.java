@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPom extends Page{
 
-    private final String PATH = "/login";
+    private final String PATH = "login";
 
     @CacheLookup
     @FindBy(name = "username") private WebElement usernameInputField;
