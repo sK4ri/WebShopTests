@@ -1,5 +1,6 @@
 package com.codecanvas.webshoptests;
 
+import com.codecanvas.webshop.DriverUtil;
 import com.codecanvas.webshop.POM.HomePom;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,7 +25,7 @@ public class LogoutTest {
 
     @AfterEach
     public void quit() {
-        hp.quitDriver();
+        DriverUtil.quit();
     }
 
 }
