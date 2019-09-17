@@ -1,4 +1,4 @@
-package com.codecanvas.webshop;
+package com.codecanvas.webshop.POM;
 
 import com.github.shyiko.dotenv.DotEnv;
 import org.openqa.selenium.WebDriver;
@@ -6,9 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Map;
 
-public class Base {
+public abstract class Page {
 
-    private static WebDriver driver;
+    static WebDriver driver;
 
     Map<String, String> dotEnv = DotEnv.load();
     public final String USERNAME = dotEnv.get("USERNAME");
@@ -17,9 +17,21 @@ public class Base {
     public final String WEBDRIVER_PATH = dotEnv.get("WEBDRIVER_PATH");
 
 
-    public static WebDriver getDriver() {
-
+    public Page() {
         if (driver == null) driver = new ChromeDriver();
-        return driver;
+    }
+
+    public void goToPage (String path) {
+        driver.get(BASE_URL + path);
+    }
+
+    public void login() {
+
+        LoginPom lp = new LoginPom();
+        lp.login(USERNAME, PASSWORD);
+    }
+
+    public void quitDriver() {
+        driver.quit();
     }
 }
