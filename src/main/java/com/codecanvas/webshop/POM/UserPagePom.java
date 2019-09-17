@@ -21,7 +21,9 @@ public class UserPagePom extends Page{
         goToPage(PATH);
     }
 
-
+    public void validateUserPage(WebDriver driver) {
+        
+    }
 
 
 }
