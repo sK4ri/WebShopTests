@@ -177,6 +177,7 @@ chromedriver
 
 # login test data
 src/test/resources/logindata.csv
+src/test/resources/registerdata.csv
 
 # dotenv
 
