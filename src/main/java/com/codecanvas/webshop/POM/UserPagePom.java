@@ -1,5 +1,6 @@
 package com.codecanvas.webshop.POM;
 
+import com.codecanvas.webshop.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -21,8 +22,11 @@ public class UserPagePom extends Page{
         goToPage(PATH);
     }
 
-    public void validateUserPage(WebDriver driver) {
-        
+    public boolean validateUserPage() {
+        if (Util.waitForWebElementToBeLocated(driver, userInfo) && Util.waitForWebElementToBeLocated(driver, userInfo)) {
+            return true;
+        }
+        return false;
     }
 
 
