@@ -1,14 +1,15 @@
 package com.codecanvas.webshop.POM;
 
+import com.codecanvas.webshop.DriverUtil;
 import com.github.shyiko.dotenv.DotEnv;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.Map;
 
 public abstract class Page {
 
-    static WebDriver driver;
+    protected WebDriver driver;
 
     Map<String, String> dotEnv = DotEnv.load();
     public final String SELENIUM_USERNAME = dotEnv.get("SELENIUM_USERNAME");
@@ -19,8 +20,9 @@ public abstract class Page {
 
 
     public Page() {
-        if (driver == null) driver = new ChromeDriver();
+        this.driver = DriverUtil.getDriver();
         System.setProperty(WEBDRIVER_TYPE, WEBDRIVER_PATH);
+        PageFactory.initElements(driver, this);
     }
 
     public void goToPage (String path) {
@@ -32,7 +34,4 @@ public abstract class Page {
         lp.login(SELENIUM_USERNAME, SELENIUM_PASSWORD);
     }
 
-    public void quitDriver() {
-        driver.quit();
-    }
 }

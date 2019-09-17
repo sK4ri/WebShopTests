@@ -20,4 +20,5 @@ public class HomePom extends Page {
     public boolean logoutSuccessful() {
         return loginLogout.getText().equals("LOGIN");
     }
+
 }
