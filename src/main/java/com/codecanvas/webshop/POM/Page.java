@@ -15,10 +15,12 @@ public abstract class Page {
     public final String PASSWORD = dotEnv.get("PASSWORD");
     public final String BASE_URL = dotEnv.get("BASE_URL");
     public final String WEBDRIVER_PATH = dotEnv.get("WEBDRIVER_PATH");
+    public final String WEBDRIVER_TYPE = dotEnv.get("WEBDRIVER_TYPE");
 
 
     public Page() {
         if (driver == null) driver = new ChromeDriver();
+        System.setProperty(WEBDRIVER_TYPE, WEBDRIVER_PATH);
     }
 
     public void goToPage (String path) {
