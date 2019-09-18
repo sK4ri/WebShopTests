@@ -20,8 +20,8 @@ public abstract class Page {
 
 
     public Page() {
-        this.driver = DriverUtil.getDriver();
         System.setProperty(WEBDRIVER_TYPE, WEBDRIVER_PATH);
+        this.driver = DriverUtil.getDriver();
         PageFactory.initElements(driver, this);
     }
 
