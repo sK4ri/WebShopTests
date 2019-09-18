@@ -24,7 +24,7 @@ public class LoginTest {
 
     @Test
     public void successfulLogin() {
-        lp.login(lp.USERNAME, lp.PASSWORD);
+        lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
     }
 
     @ParameterizedTest

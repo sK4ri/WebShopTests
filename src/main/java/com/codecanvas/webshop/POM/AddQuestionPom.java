@@ -27,11 +27,11 @@ public class AddQuestionPom extends Page{
 
         PageFactory.initElements(driver, this);
         login();
-        goToPage(PATH);
+
     }
 
     public void goToPageStart() {
-        goToPage(PATH);
+
         waiter.waitForPageLoadComplete(driver);
     }
 

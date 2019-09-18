@@ -25,7 +25,7 @@ public class HomePom extends Page{
 
     public HomePom() {
         PageFactory.initElements(driver, this);
-        goToPage(PATH);
+
     }
     public void sort(String by, String direction ) {
         Select sortBy = new Select(selectSortBy);
