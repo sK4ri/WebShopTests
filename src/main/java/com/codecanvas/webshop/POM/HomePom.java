@@ -13,7 +13,7 @@ public class HomePom extends Page{
     @FindBy(id = "login") private WebElement loginButton;
 
     @CacheLookup
-    @FindBy(id ="user_page") private WebElement userPageButton;
+    @FindBy(xpath ="//*[@id=\"header_box\"]/div[2]/a[1]") private WebElement userProfileLink;
 
     public HomePom() {
         PageFactory.initElements(driver, this);
@@ -24,7 +24,7 @@ public class HomePom extends Page{
         loginButton.click();
     }
 
-    public void clickUserPageButton() {
-        userPageButton.click();
+    public String getLoggedInUsername() {
+        return userProfileLink.getAttribute("href");
     }
 }

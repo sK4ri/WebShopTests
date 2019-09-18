@@ -27,24 +27,21 @@ public class RegistrationTest {
 
 //    @AfterEach
 //    public void quit() {
-//        registrationPom.quitDriver();
+//        driver.quit();
 //    }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/registerdata.csv")
     public void successfulRegister(String username, String password, String password2) {
 
-        homePom = new HomePom();
-        loginPom = new LoginPom();
-        userPagePom = new UserPagePom();
-
         registrationPom.setUsername(username);
         registrationPom.setPassword(password);
         registrationPom.setPassword2(password2);
         registrationPom.clickSubmit();
+        homePom = new HomePom();
         homePom.clickLoginButton();
+        loginPom = new LoginPom();
         loginPom.login(username, password);
-        homePom.clickUserPageButton();
-        assertEquals(username, userPagePom.getUserName());
+        assertEquals("http://127.0.0.1:5000/user_page/" + username, homePom.getLoggedInUsername());
     }
 }
