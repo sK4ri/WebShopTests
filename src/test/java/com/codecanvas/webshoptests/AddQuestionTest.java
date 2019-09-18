@@ -1,5 +1,6 @@
 package com.codecanvas.webshoptests;
 
+import com.codecanvas.webshop.DriverUtil;
 import com.codecanvas.webshop.POM.AddQuestionPom;
 import com.codecanvas.webshop.POM.HomePom;
 import com.codecanvas.webshop.POM.LoginPom;
@@ -19,24 +20,32 @@ public class AddQuestionTest {
 
     @BeforeAll
     public static void init() {
-        aqp = new AddQuestionPom();
+
     }
     @BeforeEach
-    public void beforeEach() {
-        aqp.goToPageStart();
+    public void before() {
+        aqp = new AddQuestionPom();
+        home = new HomePom();
+        aqp.goToPage();
+        aqp.login();
+        aqp.goToPage();
+    }
+    @AfterEach
+    public void exit() {
+        DriverUtil.quit();
     }
 
-    @AfterEach
-    public void quit() {
-        // aqp.quitDriver();
+    @AfterAll
+    public static void quit() {
+        // DriverUtil.quit();
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/questions.csv", numLinesToSkip = 1)
     public void addNewQuestion(String title, String details, String image) {
+
         aqp.fillForm(title, details, image);
         aqp.submitForm();
-        home = new HomePom();
         home.sort("Time", "Descending");
         String valueFromTable = home.getTableFieldValue(0,2);
         assertEquals(title, valueFromTable);
