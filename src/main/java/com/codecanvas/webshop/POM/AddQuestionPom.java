@@ -26,7 +26,7 @@ public class AddQuestionPom extends Page{
     public AddQuestionPom() {
 
         PageFactory.initElements(driver, this);
-        login();
+//        login();
 
     }
 

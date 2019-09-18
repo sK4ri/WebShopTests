@@ -1,10 +1,10 @@
 package com.codecanvas.webshop.POM;
 
+import com.codecanvas.webshop.DriverUtil;
+import com.codecanvas.webshop.Util;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +26,7 @@ public class HomePom extends Page{
     @FindBy(id = "login") private WebElement loginLogout;
 
     public HomePom() {
+        this.driver = DriverUtil.getDriver();
         PageFactory.initElements(driver, this);
     }
 
@@ -46,6 +47,7 @@ public class HomePom extends Page{
     }
 
     public void logout() {
+        Util.waitUntilElementContainsString(driver, loginLogout, "LOGOUT");
         loginLogout.click();
     }
 
