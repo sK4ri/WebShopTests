@@ -11,23 +11,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LogoutTest {
 
     private static HomePom hp;
+    private static LoginPom lp;
 
     @BeforeEach
     public void init() {
         hp = new HomePom();
-        LoginPom lp = new LoginPom();
+        lp = new LoginPom();
         lp.goToPage();
         lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
     }
 
     @Test
     public void successfulLogout() {
-        hp.logout();
-        assertTrue(hp.logoutSuccessful());
-    }
-
-    @Test
-    public void second() {
+        assertTrue(lp.loginSuccessful());
         hp.logout();
         assertTrue(hp.logoutSuccessful());
     }

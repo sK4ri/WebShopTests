@@ -15,6 +15,8 @@ public class LoginPom extends Page{
     @CacheLookup
     @FindBy(name = "plain_text_password") private WebElement passwordInputField;
 
+    @FindBy(id = "login") private WebElement loginLogout;
+
 
     public LoginPom() {
         PATH = "/login";
@@ -26,4 +28,9 @@ public class LoginPom extends Page{
         usernameInputField.sendKeys(username);
         passwordInputField.sendKeys(password + Keys.RETURN);
     }
+
+    public boolean loginSuccessful() {
+        return loginLogout.getText().equals("LOGOUT");
+    }
+
 }
