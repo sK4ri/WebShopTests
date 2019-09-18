@@ -26,9 +26,4 @@ public abstract class Page {
         driver.get(BASE_URL + PATH);
     }
 
-    public void login() {
-        LoginPom lp = new LoginPom();
-        lp.login(SELENIUM_USERNAME, SELENIUM_PASSWORD);
-    }
-
 }
