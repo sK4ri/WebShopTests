@@ -9,11 +9,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import waiter.Waiter;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HomePom extends Page{
-    private final String PATH = "/";
+
     private Waiter waiter = new Waiter();
     @CacheLookup
     @FindBy(id = "sort_by") private WebElement selectSortBy;
@@ -24,8 +25,10 @@ public class HomePom extends Page{
     @CacheLookup
     @FindBy(id = "main_table") private WebElement questionTable;
     @FindBy(id = "login") private WebElement loginLogout;
+    @FindBy(xpath = "//a[contains(.,'USER PAGE')]") private WebElement userPageLink;
 
     public HomePom() {
+        PATH = "/";
         this.driver = DriverUtil.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -44,6 +47,11 @@ public class HomePom extends Page{
         List<WebElement> cols = rows.get(rowIndex).findElements(By.tagName("td"));
         String cell = cols.get(columnIndex).getText();
         return cell;
+    }
+
+    public boolean loginSuccessul(String username) {
+        Util.waitForWebElementToBeLocated(driver, userPageLink);
+        return String.format(BASE_URL+ "/user_page/%s", username).equals(userPageLink.getAttribute("href"));
     }
 
     public void logout() {
