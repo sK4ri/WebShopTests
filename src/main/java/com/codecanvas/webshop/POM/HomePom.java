@@ -55,8 +55,8 @@ public class HomePom extends Page{
         return loginLogout.getText().equals("LOGIN");
     }
 
-    public boolean questionIsFound(String partialQuestion) {
-        return driver.findElement(By.partialLinkText(partialQuestion)).isDisplayed();
+    public boolean questionIsFound(String question) {
+        return driver.findElement(By.linkText(question)).isDisplayed();
     }
 
 }
