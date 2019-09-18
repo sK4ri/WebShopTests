@@ -28,6 +28,7 @@ public abstract class Page {
 
     public void login() {
         LoginPom lp = new LoginPom();
+        lp.goToPage();
         lp.login(SELENIUM_USERNAME, SELENIUM_PASSWORD);
     }
 
