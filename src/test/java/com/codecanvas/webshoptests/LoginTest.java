@@ -5,6 +5,8 @@ import com.codecanvas.webshop.POM.LoginPom;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class LoginTest {
 
@@ -22,11 +24,12 @@ public class LoginTest {
 
     @Test
     public void successfulLogin() {
-        lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
+        lp.login(lp.USERNAME, lp.PASSWORD);
     }
 
-    @Test
-    public void secondLogin() {
-        lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
+    @ParameterizedTest
+    @CsvFileSource(resources = "/logindata.csv")
+    public void unsuccessfulLogin(String username, String password) {
+        lp.login(username, password);
     }
 }
