@@ -1,5 +1,6 @@
 package com.codecanvas.webshoptests;
 
+import com.codecanvas.webshop.DriverUtil;
 import com.codecanvas.webshop.POM.HomePom;
 import com.codecanvas.webshop.POM.LoginPom;
 import com.codecanvas.webshop.POM.RegistrationPom;
@@ -25,10 +26,10 @@ public class RegistrationTest {
         registrationPom = new RegistrationPom();
     }
 
-//    @AfterEach
-//    public void quit() {
-//        driver.quit();
-//    }
+    @AfterEach
+    public void quit() {
+        DriverUtil.quit();
+    }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/registerdata.csv")
