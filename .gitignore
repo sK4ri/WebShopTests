@@ -178,6 +178,10 @@ chromedriver
 # login test data
 src/test/resources/logindata.csv
 
+# sql injection cheatsheet
+
+src/test/resources/sqlInjectionUrl.csv
+
 # dotenv
 
 .env

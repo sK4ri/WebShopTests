@@ -26,4 +26,5 @@ public abstract class Page {
         driver.get(BASE_URL + PATH);
     }
 
+    public WebDriver getDriver() {return driver;}
 }
