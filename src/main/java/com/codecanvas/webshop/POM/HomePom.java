@@ -1,5 +1,6 @@
 package com.codecanvas.webshop.POM;
 
+import com.codecanvas.webshop.DriverUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HomePom extends Page{
-    private final String PATH = "/";
     private Waiter waiter = new Waiter();
     @CacheLookup
     @FindBy(id = "sort_by") private WebElement selectSortBy;
@@ -24,6 +24,8 @@ public class HomePom extends Page{
     @FindBy(id = "main_table") private WebElement questionTable;
 
     public HomePom() {
+        PATH = "/";
+        this.driver = DriverUtil.getDriver();
         PageFactory.initElements(driver, this);
 
     }
