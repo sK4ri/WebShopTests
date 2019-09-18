@@ -24,12 +24,14 @@ public class LoginTest {
 
     @Test
     public void successfulLogin() {
+        lp.goToPage();
         lp.login(lp.SELENIUM_USERNAME, lp.SELENIUM_PASSWORD);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/logindata.csv")
     public void unsuccessfulLogin(String username, String password) {
+        lp.goToPage();
         lp.login(username, password);
     }
 }
