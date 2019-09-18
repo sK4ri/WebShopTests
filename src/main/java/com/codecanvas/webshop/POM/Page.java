@@ -1,6 +1,5 @@
 package com.codecanvas.webshop.POM;
 
-import com.codecanvas.webshop.DriverUtil;
 import com.github.shyiko.dotenv.DotEnv;
 import org.openqa.selenium.WebDriver;
 
@@ -9,6 +8,7 @@ import java.util.Map;
 public abstract class Page {
 
     protected WebDriver driver;
+    String PATH;
 
     Map<String, String> dotEnv = DotEnv.load();
     public final String USERNAME = dotEnv.get("USERNAME");
@@ -22,12 +22,12 @@ public abstract class Page {
         System.setProperty(WEBDRIVER_TYPE, WEBDRIVER_PATH);
     }
 
-    public void goToPage (String path) {
-        driver.get(BASE_URL + path);
+    public void goToPage () {
+        driver.get(BASE_URL + PATH);
     }
 
     public void login() {
-        LoginPom lp = new LoginPom(DriverUtil.getDriver());
+        LoginPom lp = new LoginPom();
         lp.login(USERNAME, PASSWORD);
     }
 

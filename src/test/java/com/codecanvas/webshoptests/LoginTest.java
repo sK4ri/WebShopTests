@@ -5,6 +5,8 @@ import com.codecanvas.webshop.POM.LoginPom;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class LoginTest {
 
@@ -12,7 +14,7 @@ public class LoginTest {
 
     @BeforeEach
     public void init() {
-        lp = new LoginPom(DriverUtil.getDriver());
+        lp = new LoginPom();
     }
 
     @AfterEach
@@ -25,8 +27,9 @@ public class LoginTest {
         lp.login(lp.USERNAME, lp.PASSWORD);
     }
 
-    @Test
-    public void secondLogin() {
-        lp.login(lp.USERNAME, lp.PASSWORD);
+    @ParameterizedTest
+    @CsvFileSource(resources = "/logindata.csv")
+    public void unsuccessfulLogin(String username, String password) {
+        lp.login(username, password);
     }
 }

@@ -10,8 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPom extends Page{
 
-    private final String PATH = "/login";
-
     @CacheLookup
     @FindBy(name = "username") private WebElement usernameInputField;
 
@@ -19,10 +17,10 @@ public class LoginPom extends Page{
     @FindBy(name = "plain_text_password") private WebElement passwordInputField;
 
 
-    public LoginPom(WebDriver driver) {
-        this.driver = driver;
+    public LoginPom() {
+        PATH = "/login";
+        this.driver = DriverUtil.getDriver();
         PageFactory.initElements(driver, this);
-        goToPage(PATH);
     }
 
     public void login(String username, String password) {
