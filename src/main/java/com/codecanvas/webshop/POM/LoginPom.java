@@ -1,6 +1,8 @@
 package com.codecanvas.webshop.POM;
 
+import com.codecanvas.webshop.DriverUtil;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -18,12 +20,10 @@ public class LoginPom extends Page{
 
 
     public LoginPom() {
-        PageFactory.initElements(driver, this);
         goToPage(PATH);
     }
 
     public void login(String username, String password) {
-
         usernameInputField.sendKeys(username);
         passwordInputField.sendKeys(password + Keys.RETURN);
     }

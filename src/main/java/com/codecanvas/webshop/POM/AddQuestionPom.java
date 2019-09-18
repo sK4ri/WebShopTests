@@ -30,7 +30,13 @@ public class AddQuestionPom extends Page{
         goToPage(PATH);
     }
 
+    public void goToPageStart() {
+        goToPage(PATH);
+        waiter.waitForPageLoadComplete(driver);
+    }
+
     public void fillForm(String title, String details, String image) {
+        waiter.waitForElementToBeDisplayed(questionTitle, driver);
         questionTitle.sendKeys(title);
         questionDetails.sendKeys(details);
         imageLink.sendKeys(image);
